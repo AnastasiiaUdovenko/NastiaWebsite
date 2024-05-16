@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Portfolio</title>
+    <!-- Link to Google Fonts stylesheet for Prata font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            height: 80%;
+        }
+        #left {
+            flex: 1;
+            text-align: center;
+        }
+        #right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center items vertically */
+            line-height: 1.6; /* Adjust vertical spacing */
+        }
+        #profile-pic {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-family: 'Prata', serif; /* Apply Prata font */
+            font-size: 54px; /* 50% larger font size */
+            margin-bottom: 20px;
+            width: 100%; /* Make the name fill out the same width as the picture */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+            padding: 0 20px; /* Add padding to match the picture */
+        }
+        .button {
+            font-family: 'Prata', serif; /* Apply Prata font */
+            color: #000;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .button:hover {
+            color: #fff;
+            background-color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="left">
+            <img src="./images/nastiaHomepage.JPG" alt="Profile Picture" id="profile-pic">
+            <h1>Anastasiia Udovenko</h1>
+        </div>
+        <div id="right">
+            <div class="button"><a href="about.html">About me</a></div>
+            <div class="button"><a href="videos.html">Videos</a></div>
+            <div class="button"><a href="pictures.html">Pictures</a></div>
+            <div class="button"><a href="education.html">Education</a></div>
+            <div class="button"><a href="contact.html">Contact</a></div>
+        </div>
+    </div>
+</body>
+</html>

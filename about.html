@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&display=swap">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove margin */
+            padding: 0; /* Remove padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Prata', serif; /* Apply Prata font */
+            font-size: 54px; /* 50% larger font size */
+            margin-bottom: 20px;
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 80%; /* Set width to 80% of viewport */
+        }
+        .left {
+            flex: 1; /* Take up 1/3 of the container width */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally */
+        }
+        .image {
+            overflow: hidden; /* Hide overflow if image exceeds container */
+            margin-bottom: 30px; /* Add margin below the image */
+            height: 70vh; /* Set image height to 50% of viewport height */
+        }
+        img {
+            width: auto; /* Allow image width to adjust proportionally */
+            height: 100%; /* Ensure image height fills its container */
+            margin-top: 30px;
+        }
+        .right {
+            flex: 2; /* Take up 2/3 of the container width */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .text {
+            width: 90%; /* Set width of text section */
+            text-align: center; /* Center text horizontally */
+        }
+        .text-content {
+            font-family: 'Prata', serif; /* Apply Prata font */
+            padding: 0 20px; /* Add padding to text */
+            font-size: 1.1em; /* Increase font size of text */
+            margin-top: 60px; /* Add margin above the paragraph */
+        }
+        .text-content p {
+            line-height: 1.6; /* Adjust line height as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>About Me</h1>
+            <div class="image">
+                <img src="./images/headshot.JPG" alt="Headshot">
+            </div>
+        </div>
+        <div class="right">
+            <div class="text">
+                <div class="text-content">
+                    <p>
+                        I was born on the 23rd October 2002 in the small town of Novomoskovsk, Ukraine.
+                        At the age of 6, I went to school, where I attended additional classes of choreography
+                        and drawing. A year after I entered to children circus studio called “Melange-art” in
+                        Novomoskovsk. In 2016, being a part of a group of neon jugglers I became the
+                        finalist of the show called “Ukraine’s got talent. Kids". From 2017 to 2018 I worked
+                        as a juggler and a ballet dancer in famous Ukrainian Circus called “Kobzov”.
+                        In 2018 I entered the Kiev Municipal Academy of Circus and Performing Arts. Then I
+                        graduated from Junior Specialist and entered the Bachelor's degree in 2021. I study
+                        juggling and contortion with hoops, as well as acting, pantomime, classical and
+                        modern choreography . Since there my adventure has begun.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
