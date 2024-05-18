@@ -14,7 +14,6 @@
         h1 {
             font-family: 'Prata', serif; /* Apply Prata font */
             font-size: 54px; /* 50% larger font size */
-        
             padding: 20px;
             margin: 0;
             
@@ -28,58 +27,60 @@
         }
         .gallery img {
             max-width: 100%;
-            max-height: 100%;
+            height: auto;
             cursor: pointer;
-            object-fit: cover;
         }
         /* Modal styles */
         .modal {
             display: none;
             position: fixed;
             z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50);
+            width: 80%;
+            height: 80%;
             overflow: auto;
             background-color: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
         }
         .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            max-width: 90%;
-            max-height: 90%
             position: relative;
             display: flex;
             justify-content: center;
-            align-item: center;
-            overflow: hidden;
+            align-items: center;
+            height: 100%;
         }
         .modal-content img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            cursor: pointer;
         }
-        .close {
+      .exit {
             position: absolute;
             top: 10px;
             right: 10px;
-            color: #aaa;
-            font-size: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-            z-index: 2;
+            color: white;
+            font-size: 24px;
             cursor: pointer;
         }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
+        .exit:hover {
+            color: #ccc;
+        }
+        .pointer-left,
+        .pointer-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20%;
+            height: 100%;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .pointer-left {
+            left: 0;
+        }
+        .pointer-right {
+            right: 0;
         }
     </style>
 </head>
@@ -125,9 +126,11 @@
     </div>
 
     <!-- The Modal -->
-    <div id="myModal" class="modal"onclick="closeModal()>
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-content" onclick="nextPrev(event)">
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="exit" onclick="closeModal()">&times;</span>
+            <div class="pointer-left" onclick="prevImage()"></div>
+            <div class="pointer-right" onclick="nextImage()"></div>
             <img id="modalImg" src="">
         </div>
     </div>
@@ -148,17 +151,22 @@
             modal.style.display = "none";
         }
 
-        function nextPrev(event) {
-            event.stopPropagation();
-            if (event.clientX < window.innerWidth / 2) {
-                // Clicked on the left half of the modal
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-            } else {
-                // Clicked on the right half of the modal
-                currentIndex = (currentIndex + 1) % images.length;
-            }
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
             modalImg.src = images[currentIndex].src;
         }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            modalImg.src = images[currentIndex].src;
+        }
+
+        // Close modal on click outside the image
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
     </script>
 </body>
 </html>
