@@ -20,15 +20,15 @@
             
         }
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             padding: 20px;
+            justify-content: center;
         }
         .gallery img {
             max-width: 100%;
-            max-height: 100%;
+            height: auto;
             cursor: pointer;
         }
         /* Modal styles */
@@ -50,8 +50,7 @@
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
-            max-width: 700px;
+            maz-width: 80%;
             position: relative;
         }
         .modal-content img {
@@ -122,19 +121,36 @@
     <!-- The Modal -->
     <div id="myModal" class="modal"onclick="closeModal()>
         <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
+        <div class="modal-content" onclick="nextPrev(event)>
             <img id="modalImg" src="">
         </div>
     </div>
 
     <script>
+        var images = document.querySelectorAll('.gallery img');
+        var modalImg = document.getElementById("modalImg");
+        var modal = document.getElementById("myModal");
+        var currentIndex = 0;
+        
         function openModal(element) {
-            document.getElementById("modalImg").src = element.src;
-            document.getElementById("myModal").style.display = "flex";
+            modalImg.src = element.src;
+            modal.style.display = "flex";
+            currentIndex = Array.from(images).indexOf(element);
         }
 
         function closeModal() {
-            document.getElementById("myModal").style.display = "none";
+            modal.style.display = "none";
+        }
+
+        function nextPrev(event) {
+            if (event.clientX < window.innerWidth / 2) {
+                // Clicked on the left half of the modal
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            } else {
+                // Clicked on the right half of the modal
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+            modalImg.src = images[currentIndex].src;
         }
     </script>
 </body>
