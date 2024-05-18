@@ -37,8 +37,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.8);
 }
@@ -124,16 +124,15 @@
         <img src="./images/show17.jpeg" alt="Picture 36" onclick="openModal(this)">
     </div>
 
-    <!-- The Modal -->
+<!-- The Modal -->
 <div id="myModal" class="modal" onclick="closeModal()">
-        <div class="modal-content">
-            <span class="exit" onclick="closeModal()">&times;</span>
-            <div class="pointer-left" onclick="prevImage()"></div>
-            <div class="pointer-right" onclick="nextImage()"></div>
-            <img id="modalImg" src="">
-        </div>
+    <div class="modal-content">
+        <!-- Highlighted change: Add onclick event to the exit button -->
+        <span class="exit" onclick="closeModal()">&times;</span>
+        <!-- Rest of the modal content -->
     </div>
-    
+</div>
+
    <script>
         var images = document.querySelectorAll('.gallery img');
         var modalImg = document.getElementById("modalImg");
