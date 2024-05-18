@@ -31,19 +31,18 @@
             cursor: pointer;
         }
         /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50);
-            width: 80%;
-            height: 80%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-        }
-        .modal-content {
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+     .modal-content {
             position: relative;
             display: flex;
             justify-content: center;
@@ -126,7 +125,7 @@
     </div>
 
     <!-- The Modal -->
-    <div id="myModal" class="modal">
+<div id="myModal" class="modal" onclick="closeModal()">
         <div class="modal-content">
             <span class="exit" onclick="closeModal()">&times;</span>
             <div class="pointer-left" onclick="prevImage()"></div>
@@ -134,8 +133,8 @@
             <img id="modalImg" src="">
         </div>
     </div>
-
-    <script>
+    
+   <script>
         var images = document.querySelectorAll('.gallery img');
         var modalImg = document.getElementById("modalImg");
         var modal = document.getElementById("myModal");
