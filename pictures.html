@@ -35,20 +35,22 @@
             display: none;
             position: fixed;
             z-index: 1;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            left: 0%;
+            top: 0%;
             width: 100%;
             height: 100%;
             overflow: auto;
             background-color: rgba(0,0,0,0.8);
+            overflow: auto;
         }
         .modal-content {
             position: relative;
+            margin: auto;
+            width: 80%;
+            max-width: 800px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
         }
         .modal-content img {
             max-width: 100%;
@@ -124,7 +126,7 @@
         <img src="./images/show17.jpeg" alt="Picture 36" onclick="openModal(this)">
     </div>
 <!-- The Modal -->
-<div id="myModal" class="modal" onclick="closeModal()">
+<div id="myModal" class="modal" onclick="nextImage()">
         <div class="modal-content">
             <span class="exit" onclick="closeModal()">&times;</span>
             <div class="pointer-left" onclick="prevImage()"></div>
@@ -141,7 +143,7 @@
 
         function openModal(element) {
             modalImg.src = element.src;
-            modal.style.display = "flex";
+            modal.style.display = "block";
             currentIndex = Array.from(images).indexOf(element);
         }
 
@@ -158,6 +160,13 @@
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             modalImg.src = images[currentIndex].src;
         }
+
+        //Close modal if user clicks outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                nextImage();
+            }
+        };
     </script>
 </body>
 </html>
