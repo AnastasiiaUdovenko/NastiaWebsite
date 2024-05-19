@@ -25,8 +25,11 @@
             list-style: none;
             padding: 0;
             margin: 20px auto;
-            max-width: 600px;
-        }
+            max-width: 1000px; /* Increased max-width to accommodate two columns */
+            display: grid; /* Use grid layout */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Automatically fit columns with a minimum width of 300px */
+            grid-gap: 20px; /* Add gap between grid items */
+         }
         .video-item {
             margin-bottom: 20px;
         }
