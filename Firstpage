@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .left, .right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .left {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        .left img {
+            max-width: 100%;
+            height: auto;
+        }
+        .left .caption {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .right {
+            background-color: #ffffff;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .buttons button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="your-image.jpg" alt="Your Picture">
+            <div class="caption">Your Text Below the Picture</div>
+        </div>
+        <div class="right">
+            <div class="buttons">
+                <button onclick="window.location.href='page1.html'">Button 1</button>
+                <button onclick="window.location.href='page2.html'">Button 2</button>
+                <button onclick="window.location.href='page3.html'">Button 3</button>
+                <button onclick="window.location.href='page4.html'">Button 4</button>
+                <button onclick="window.location.href='page5.html'">Button 5</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
