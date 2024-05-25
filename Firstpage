@@ -60,16 +60,16 @@
 <body>
     <div class="container">
         <div class="left">
-            <img src="your-image.jpg" alt="Your Picture">
-            <div class="caption">Your Text Below the Picture</div>
+            <img src="./images/nastiaHomepage.JPG" alt="Your Picture">
+            <div class="caption">Anastasiia Udovenko</div>
         </div>
         <div class="right">
             <div class="buttons">
-                <button onclick="window.location.href='page1.html'">Button 1</button>
-                <button onclick="window.location.href='page2.html'">Button 2</button>
-                <button onclick="window.location.href='page3.html'">Button 3</button>
-                <button onclick="window.location.href='page4.html'">Button 4</button>
-                <button onclick="window.location.href='page5.html'">Button 5</button>
+                <button onclick="window.location.href='page1.html'">Anout me</button>
+                <button onclick="window.location.href='page2.html'">Videos</button>
+                <button onclick="window.location.href='page3.html'">Pictures</button>
+                <button onclick="window.location.href='page4.html'">Education and Experience</button>
+                <button onclick="window.location.href='page5.html'">Contact me</button>
             </div>
         </div>
     </div>
