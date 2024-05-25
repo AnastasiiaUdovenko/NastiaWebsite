@@ -19,7 +19,7 @@
         }
         #container {
             display: flex;
-            justify-content: space-around; /* Distribute space evenly */
+            justify-content: space-between; /* Distribute space evenly */
             align-items: center;
             width: 80%;
             height: 80%;
@@ -30,18 +30,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center; /* Center items vertically */
-            max-width: 45%; /* Ensure both sides take up equal space */
         }
         #profile-pic {
             max-width: 100%;
             height: auto;
             display: block;
-            margin-bottom: 20px;
+        }
+        .text-center {
+            text-align: center;
+            width: 100%;
+            margin-top: 20px; /* Space between image and text */
         }
         h1 {
             font-family: 'Prata', serif; /* Apply Prata font */
             font-size: 54px; /* Adjusted font size */
-            margin-bottom: 20px;
         }
         .button {
             font-family: 'Prata', serif; /* Apply Prata font */
@@ -70,7 +72,7 @@
     <div id="container">
         <div id="left">
             <img src="./images/nastiaHomepage.JPG" alt="Profile Picture" id="profile-pic">
-            <h1>Anastasiia Udovenko</h1>
+            <h1 class="text-center">Anastasiia Udovenko</h1>
         </div>
         <div id="right">
             <div class="button"><a href="about.html">About me</a></div>
