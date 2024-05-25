@@ -26,6 +26,10 @@
         #left {
             flex: 1;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center items vertically */
         }
         #right {
             flex: 1;
@@ -73,8 +77,8 @@
 <body>
     <div id="container">
         <div id="left">
-            <img src="./images/nastiaHomepage.JPG" alt="Profile Picture" id="profile-pic">
             <h1>Anastasiia Udovenko</h1>
+            <img src="./images/nastiaHomepage.JPG" alt="Profile Picture" id="profile-pic">
         </div>
         <div id="right">
             <div class="button"><a href="about.html">About me</a></div>
