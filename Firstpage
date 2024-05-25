@@ -48,9 +48,9 @@
             align-items: center;
         }
         .buttons button {
-            margin: 20px;
-            padding: 20px 40px;
-            font-size: 2em;
+            margin: 13px;
+            padding: 13px 26px;
+            font-size: 1.5em;
             cursor: pointer;
             font-family: 'Prata', serif;
             color: #000000;
