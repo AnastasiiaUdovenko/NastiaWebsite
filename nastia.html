@@ -25,19 +25,18 @@
         }
         #left {
             flex: 1;
-            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Center items vertically */
+            justify-content: center;
         }
         #right {
             flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Center items vertically */
-            line-height: 1.6; /* Adjust vertical spacing */
+            justify-content: center;
+            text-align: center;
         }
         #profile-pic {
             max-width: 100%;
@@ -49,44 +48,6 @@
             font-family: 'Prata', serif; /* Apply Prata font */
             font-size: 54px; /* 50% larger font size */
             margin-bottom: 20px;
-            width: 100%; /* Make the name fill out the same width as the picture */
-            box-sizing: border-box; /* Include padding and border in the width calculation */
-            padding: 0 20px; /* Add padding to match the picture */
         }
         .button {
-            font-family: 'Prata', serif; /* Apply Prata font */
-            color: #000;
-            text-decoration: none;
-            font-size: 20px;
-            padding: 10px 20px;
-            border: 2px solid #333;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-        }
-        .button:hover {
-            color: #fff;
-            background-color: #333;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-    </style>
-</head>
-<body>
-    <div id="container">
-        <div id="left">
-            <h1>Anastasiia Udovenko</h1>
-            <img src="./images/nastiaHomepage.JPG" alt="Profile Picture" id="profile-pic">
-        </div>
-        <div id="right">
-            <div class="button"><a href="about.html">About me</a></div>
-            <div class="button"><a href="videos.html">Videos</a></div>
-            <div class="button"><a href="pictures.html">Pictures</a></div>
-            <div class="button"><a href="education.html">Education and Experience</a></div>
-            <div class="button"><a href="contact.html">Contact</a></div>
-        </div>
-    </div>
-</body>
-</html>
+            font-family
