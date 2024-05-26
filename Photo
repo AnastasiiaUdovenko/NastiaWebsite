@@ -115,6 +115,17 @@
     }
     modalImg.src = images[currentIndex];
   }
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowLeft') {
+    // Left arrow pressed
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    document.getElementById('modalImg').src = images[currentIndex];
+  } else if (event.key === 'ArrowRight') {
+    // Right arrow pressed
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById('modalImg').src = images[currentIndex];
+  }
+});
 </script>
 
 </body>
