@@ -38,7 +38,6 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
             justify-content: center;
             align-items: center;
         }
@@ -46,9 +45,6 @@
             position: relative;
             max-width: 90%;
             max-height: 90%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         .modal-content img {
             max-width: 100%;
@@ -158,11 +154,11 @@
         }
 
         // Close modal if user clicks outside the image
-        window.onclick = function(event) {
-            if (event.target == modal) {
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
                 closeModal();
             }
-        };
+        });
     </script>
 </body>
 </html>
