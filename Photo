@@ -53,21 +53,21 @@
     font-weight: bold;
     cursor: pointer;
   }
-        .pointer-left,
-        .pointer-right {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 20%;
-            cursor: pointer;
-            z-index: 1;
-        }
-        .pointer-left {
-            left: 0;
-        }
-        .pointer-right {
-            right: 0;
-        }
+  .pointer-left,
+  .pointer-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .pointer-left {
+    left: 0;
+  }
+  .pointer-right {
+    right: 0;
+  }
 </style>
 </head>
 <body>
@@ -81,7 +81,9 @@
 
 <div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImg" onclick="nextImage(event)">
+  <div class="pointer-left" onclick="previousImage()"></div>
+  <img class="modal-content" id="modalImg">
+  <div class="pointer-right" onclick="nextImage()"></div>
 </div>
 
 <script>
@@ -101,31 +103,15 @@
     modal.style.display = "none";
   }
 
-  function nextImage(event) {
-    event.stopPropagation(); // Prevents the modal from closing when clicking on the image
-    var modalImg = document.getElementById('modalImg');
-    var x = event.clientX;
-    var modalWidth = document.getElementById('myModal').offsetWidth;
-    if (x > modalWidth / 2) {
-      // Clicked on the right side, go to the next image
-      currentIndex = (currentIndex + 1) % images.length;
-    } else {
-      // Clicked on the left side, go to the previous image
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-    }
-    modalImg.src = images[currentIndex];
-  }
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'ArrowLeft') {
-    // Left arrow pressed
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    document.getElementById('modalImg').src = images[currentIndex];
-  } else if (event.key === 'ArrowRight') {
-    // Right arrow pressed
+  function nextImage() {
     currentIndex = (currentIndex + 1) % images.length;
     document.getElementById('modalImg').src = images[currentIndex];
   }
-});
+
+  function previousImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    document.getElementById('modalImg').src = images[currentIndex];
+  }
 </script>
 
 </body>
