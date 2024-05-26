@@ -64,7 +64,7 @@
   <!-- Add more images here -->
 </div>
 
-<div id="myModal" class="modal" onclick="closeModal()">
+<div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <img class="modal-content" id="modalImg" onclick="nextImage(event)">
 </div>
@@ -87,10 +87,10 @@
   }
 
   function nextImage(event) {
+    event.stopPropagation(); // Prevents the modal from closing when clicking on the image
     var modalImg = document.getElementById('modalImg');
-    var modal = document.getElementById('myModal');
     var x = event.clientX;
-    var modalWidth = modal.offsetWidth;
+    var modalWidth = document.getElementById('myModal').offsetWidth;
     if (x > modalWidth / 2) {
       // Clicked on the right side, go to the next image
       currentIndex = (currentIndex + 1) % images.length;
