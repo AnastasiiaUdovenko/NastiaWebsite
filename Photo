@@ -59,27 +59,46 @@
 
 <div class="gallery">
   <img src="./images/hoop.JPEG" alt="Image 1" onclick="openModal('./images/hoop.JPEG')">
-  <img src="./images/hoop1.JPEG" alt="Image 2" onclick="openModal('image2.jpg')">
-  <img src="image3.jpg" alt="Image 3" onclick="openModal('image3.jpg')">
+  <img src="./images/hoop1.JPEG" alt="Image 2" onclick="openModal('./images/hoop1.JPEG')">
+  <img src="./images/hoop2.JPEG" alt="Image 3" onclick="openModal('./images/hoop2.JPEG')">
   <!-- Add more images here -->
 </div>
 
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" onclick="closeModal()">
   <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImg">
+  <img class="modal-content" id="modalImg" onclick="nextImage(event)">
 </div>
 
 <script>
+  var images = ["./images/hoop.JPEG", "./images/hoop1.JPEG", "./images/hoop2.JPEG"]; // List of image sources
+  var currentIndex = 0;
+
   function openModal(imageSrc) {
     var modal = document.getElementById('myModal');
     var modalImg = document.getElementById('modalImg');
     modal.style.display = "block";
     modalImg.src = imageSrc;
+    currentIndex = images.indexOf(imageSrc);
   }
 
   function closeModal() {
     var modal = document.getElementById('myModal');
     modal.style.display = "none";
+  }
+
+  function nextImage(event) {
+    var modalImg = document.getElementById('modalImg');
+    var modal = document.getElementById('myModal');
+    var x = event.clientX;
+    var modalWidth = modal.offsetWidth;
+    if (x > modalWidth / 2) {
+      // Clicked on the right side, go to the next image
+      currentIndex = (currentIndex + 1) % images.length;
+    } else {
+      // Clicked on the left side, go to the previous image
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+    }
+    modalImg.src = images[currentIndex];
   }
 </script>
 
