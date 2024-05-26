@@ -121,7 +121,7 @@
         <div class="pointer-left" onclick="prevImage(event)"></div>
         <div class="pointer-right" onclick="nextImage(event)"></div>
         <div class="modal-content">
-            <span class="exit" onclick="closeModal()">&times;</span>
+            <span class="exit" onclick="closeModal(event)">&times;</span>
             <img id="modalImg" src="">
         </div>
     </div>
@@ -137,7 +137,8 @@
             currentIndex = Array.from(images).indexOf(element);
         }
 
-        function closeModal() {
+        function closeModal(event) {
+            event.stopPropagation();
             modal.style.display = "none";
         }
 
@@ -153,10 +154,9 @@
             modalImg.src = images[currentIndex].src;
         }
 
-        // Close modal if user clicks outside the image
         modal.addEventListener('click', function(event) {
             if (event.target === modal) {
-                closeModal();
+                closeModal(event);
             }
         });
     </script>
