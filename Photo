@@ -52,6 +52,7 @@
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 2; /* Ensure the close button is above other elements */
   }
   .pointer-left,
   .pointer-right {
