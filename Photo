@@ -53,6 +53,21 @@
     font-weight: bold;
     cursor: pointer;
   }
+        .pointer-left,
+        .pointer-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 20%;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .pointer-left {
+            left: 0;
+        }
+        .pointer-right {
+            right: 0;
+        }
 </style>
 </head>
 <body>
