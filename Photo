@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pictures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-family: 'Prata', serif;
+            font-size: 54px;
+            padding: 20px;
+            margin: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            justify-content: center;
+        }
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+        .exit {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .exit:hover {
+            color: #ccc;
+        }
+        .pointer-left, .pointer-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 20%;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .pointer-left {
+            left: 0;
+        }
+        .pointer-right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pictures</h1>
+    <div class="gallery">
+        <img src="./images/hoop.JPEG" alt="Picture 1" onclick="openModal(this)">
+        <img src="./images/hoop1.JPEG" alt="Picture 2" onclick="openModal(this)">
+        <img src="./images/hoop2.JPEG" alt="Picture 3" onclick="openModal(this)">
+        <img src="./images/hoop3.JPEG" alt="Picture 4" onclick="openModal(this)">
+        <img src="./images/hoop4.jpg" alt="Picture 5" onclick="openModal(this)">
+        <img src="./images/hoop5.jpg" alt="Picture 6" onclick="openModal(this)">
+        <img src="./images/hoop6.jpg" alt="Picture 7" onclick="openModal(this)">
+        <img src="./images/hoop7.JPEG" alt="Picture 8" onclick="openModal(this)">
+        <img src="./images/hoop8.JPG" alt="Picture 9" onclick="openModal(this)">
+        <img src="./images/hoop9.JPG" alt="Picture 10" onclick="openModal(this)">
+        <img src="./images/hoop10.JPG" alt="Picture 11" onclick="openModal(this)">
+        <img src="./images/hoop11.JPG" alt="Picture 12" onclick="openModal(this)">
+        <img src="./images/me.jpg" alt="Picture 13" onclick="openModal(this)">
+        <img src="./images/me1.jpg" alt="Picture 14" onclick="openModal(this)">
+        <img src="./images/me2.jpg" alt="Picture 15" onclick="openModal(this)">
+        <img src="./images/me3.jpeg" alt="Picture 16" onclick="openModal(this)">
+        <img src="./images/me4.jpeg" alt="Picture 17" onclick="openModal(this)">
+        <img src="./images/me5.jpeg" alt="Picture 18" onclick="openModal(this)">
+        <img src="./images/show.jpg" alt="Picture 19" onclick="openModal(this)">
+        <img src="./images/show1.jpg" alt="Picture 20" onclick="openModal(this)">
+        <img src="./images/show2.jpg" alt="Picture 21" onclick="openModal(this)">
+        <img src="./images/show3.jpg" alt="Picture 22" onclick="openModal(this)">
+        <img src="./images/show4.jpg" alt="Picture 23" onclick="openModal(this)">
+        <img src="./images/show5.jpg" alt="Picture 24" onclick="openModal(this)">
+        <img src="./images/show6.jpg" alt="Picture 25" onclick="openModal(this)">
+        <img src="./images/show7.jpg" alt="Picture 26" onclick="openModal(this)">
+        <img src="./images/show8.jpg" alt="Picture 27" onclick="openModal(this)">
+        <img src="./images/show9.jpg" alt="Picture 28" onclick="openModal(this)">
+        <img src="./images/show10.jpeg" alt="Picture 29" onclick="openModal(this)">
+        <img src="./images/show11.jpeg" alt="Picture 30" onclick="openModal(this)">
+        <img src="./images/show12.jpeg" alt="Picture 31" onclick="openModal(this)">
+        <img src="./images/show13.dng" alt="Picture 32" onclick="openModal(this)">
+        <img src="./images/show14.dng" alt="Picture 33" onclick="openModal(this)">
+        <img src="./images/show15.jpeg" alt="Picture 34" onclick="openModal(this)">
+        <img src="./images/show16.jpeg" alt="Picture 35" onclick="openModal(this)">
+        <img src="./images/show17.jpeg" alt="Picture 36" onclick="openModal(this)">
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="exit" onclick="closeModal()">&times;</span>
+            <div class="pointer-left" onclick="prevImage()"></div>
+            <div class="pointer-right" onclick="nextImage()"></div>
+            <img id="modalImg" src="">
+        </div>
+    </div>
+    <script>
+        var images = document.querySelectorAll('.gallery img');
+        var modalImg = document.getElementById("modalImg");
+        var modal = document.getElementById("myModal");
+        var currentIndex = 0;
+
+        function openModal(element) {
+            modalImg.src = element.src;
+            modal.style.display = "flex";
+            currentIndex = Array.from(images).indexOf(element);
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function nextImage(event) {
+            event.stopPropagation();
+            currentIndex = (currentIndex + 1) % images.length;
+            modalImg.src = images[currentIndex].src;
+        }
+
+        function prevImage(event) {
+            event.stopPropagation();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            modalImg.src = images[currentIndex].src;
+        }
+
+        // Close modal if user clicks outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>
